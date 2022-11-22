@@ -1,0 +1,9 @@
+altgraph==0.17.3
+future==0.18.2
+pefile==2022.5.30
+pycryptodomex==3.15.0
+pyinstaller==5.6.2
+pyinstaller-hooks-contrib==2022.13
+pyminizip==0.2.6
+pywin32-ctypes==0.2.0
+pyzipper==0.3.6
