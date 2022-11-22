@@ -1,0 +1,2 @@
+(Run Windows PowerShell as administrator)
+Set-ExecutionPolicy RemoteSigned
