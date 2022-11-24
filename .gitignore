@@ -155,6 +155,7 @@ cython_debug/
 *.afp
 *.pdf
 *.exe
+*.txt
 CYCLE\
 DAILY\
 DECRYPT\

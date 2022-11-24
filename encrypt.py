@@ -9,14 +9,10 @@ elif __file__:
     application_path = os.path.dirname(__file__)
 
 # print(application_path)
-main_dir = application_path.split("\\")[-1]
-# print(main_dir)
-# print(main_dir)
 
-zipPath = os.path.join(application_path, "ZIP")
-copy_dir = zipPath.split("\\")[-1]
-# print(application_path)
-# print(copy_dir)
+main_dir = application_path.split("\\")[-1]
+
+print(main_dir)
 
 def zip_folder(folder_path, output_path, password):
     zip_password = password.encode('utf-8')
@@ -53,25 +49,23 @@ def zip_folder(folder_path, output_path, password):
         zip_file.close()
         shutil.rmtree(folder_path)
 
-for dirpath, dirnames, filenames in os.walk(application_path,):
+for dirpath, dirnames, filenames in os.walk(application_path):
     if "venv" in dirnames:
         dirnames.remove("venv")
     sub_dir = dirpath.split("\\")[-1]
-    if main_dir in sub_dir or "CYCLE" in sub_dir or "DAILY" in sub_dir or "MONTHLY" in sub_dir or "CHARGE CARD" in sub_dir or "PURCHASING" in sub_dir:
+    if main_dir in sub_dir or "DAILY" in sub_dir:
+    # if main_dir in sub_dir or "CYCLE" in sub_dir or "DAILY" in sub_dir or "MONTHLY" in sub_dir or "CHARGE CARD" in sub_dir or "PURCHASING" in sub_dir:
         continue
-    job_list = dirpath.split("\\")[3]
-    if "CYCLE" not in job_list and "DAILY" not in job_list and "MONTHLY" not in job_list:
+    # job_list = dirpath.split("\\")[-1]
+    if "DAILY" not in dirpath:
+    # if "CYCLE" not in job_list and "DAILY" not in job_list and "MONTHLY" not in job_list:
         continue
-    if job_list == "CYCLE":
-        date_dir = dirpath.split("\\")[5]
-    else:
-        date_dir = dirpath.split("\\")[4]
-    try:
-        if dirpath.split("\\")[6]:
-            continue
-    except:
-        pass
-    if sub_dir == date_dir:
+    date_dir = dirpath.split("\\")[-2]
+    if date_dir == "DAILY":
         continue
-    # print(dirpath + " " + date_dir)
+    if "DAILY" not in dirpath.split("\\")[2]:
+        continue
+    print(dirpath)
+    # print(dirpath)
     zip_folder(dirpath, dirpath+".zip", date_dir)
+os.system('pause')

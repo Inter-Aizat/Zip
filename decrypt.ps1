@@ -1,4 +1,4 @@
- $folder = '..\..\Work\Zip\DECRYPT' # Enter the root path you want to monitor. 
+ $folder = '.\DECRYPT' # Enter the root path you want to monitor. 
  $filter = '*.zip'  # You can enter a wildcard filter here. 
 
  $fsw = New-Object IO.FileSystemWatcher $folder, $filter -Property  @{IncludeSubdirectories = $true;NotifyFilter = [IO.NotifyFilters]'FileName, LastWrite'}
@@ -8,5 +8,5 @@
  $changeType = $Event.SourceEventArgs.ChangeType 
  $timeStamp = $Event.TimeGenerated 
  Write-Host "The file '$name' was $changeType at $timeStamp" -fore green
-    Invoke-Item '..\..\Work\Zip\decrypt.exe'
+    Invoke-Item '.\decrypt.exe'
  }
