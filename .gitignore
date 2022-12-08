@@ -156,9 +156,9 @@ cython_debug/
 *.pdf
 *.exe
 *.txt
-CYCLE\
-DAILY\
-DECRYPT\
-INPUT\
-MAYBANK\
-ZIP\
+CYCLE/
+DAILY/
+DECRYPT/
+INPUT/
+MAYBANK/
+ZIP/
